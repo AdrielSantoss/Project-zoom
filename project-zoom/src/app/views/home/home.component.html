@@ -1,0 +1,187 @@
+<main >
+<div class="container">
+<h1 class="title">Hover</h1>
+<p class="text">Passe o cursor por cima da imagem para dar zoom.</p>
+<div class="configs-url-zoom">
+    <div>URL da imagem FullImage: <input type="url" name="" id="" [(ngModel)]="myFullresImage" value=""></div>
+    <div>URL da imagem Thumbnail: <input type="url" name="" id="" [(ngModel)]="myThumbnail" value=""></div>
+</div>
+
+<div class="imgs-wrapper">
+    <lib-ngx-image-zoom 
+        [thumbImage]=myThumbnail
+        [fullImage]=myFullresImage
+        [zoomMode] = zoomMode
+        [magnification] = magnification
+        [enableScrollZoom] = enableScrollZoom
+        [scrollStepSize] = scrollStepSize
+        [enableLens] = enableLens
+        [lensWidth] = lensWidth
+        [lensHeight] = lensHeight
+        [circularLens] = circularLens
+        [maxZoomRatio] = maxZoomRatio
+        [minZoomRatio] = minZoomRatio
+
+        >
+    </lib-ngx-image-zoom>
+
+    <lib-ngx-image-zoom 
+        [zoomMode] = zoomMode
+        [magnification]= magnification
+        [enableScrollZoom] = enableScrollZoom
+        [scrollStepSize] = scrollStepSize
+        [enableLens] = enableLens
+        [lensWidth] = lensWidth
+        [lensHeight] = lensHeight
+        [circularLens] = circularLens
+        [thumbImage]=myThumbnail2
+        [fullImage]=myFullresImage2
+        [maxZoomRatio] = maxZoomRatio
+        [minZoomRatio] = minZoomRatio
+
+        >
+    </lib-ngx-image-zoom>
+</div>
+</div>
+
+<div class="container">
+<h1 class="title">Click</h1>
+<p class="text">Clique na imagem para dar zoom</p>
+<div class="imgs-wrapper">
+    <lib-ngx-image-zoom 
+        [thumbImage]=myThumbnail
+        [fullImage]=myFullresImage
+        [zoomMode] = zoomModeClick
+        [magnification] = magnification
+        [enableScrollZoom] = enableScrollZoom
+        [scrollStepSize] = scrollStepSize
+        [enableLens] = enableLens
+        [lensWidth] = lensWidth
+        [lensHeight] = lensHeight
+        [circularLens] = circularLens
+        [maxZoomRatio] = maxZoomRatio
+        [minZoomRatio] = minZoomRatio
+        >
+    </lib-ngx-image-zoom>
+
+    <lib-ngx-image-zoom 
+        [zoomMode] = zoomModeClick
+        [magnification]= magnification
+        [enableScrollZoom] = enableScrollZoom
+        [scrollStepSize] = scrollStepSize
+        [enableLens] = enableLens
+        [lensWidth] = lensWidth
+        [lensHeight] = lensHeight
+        [circularLens] = circularLens
+        [thumbImage]=myThumbnail2
+        [fullImage]=myFullresImage2
+        [minZoomRatio] = minZoomRatio
+        >
+    </lib-ngx-image-zoom>
+</div>
+</div>
+
+<div class="container">
+<h1 class="title">Toggle</h1>
+<p class="text">Clique em uma região da imagem para dar zoom</p>
+<div class="imgs-wrapper">
+    <lib-ngx-image-zoom 
+        [thumbImage]=myThumbnail
+        [fullImage]=myFullresImage
+        [zoomMode] = zoomModeToggle
+        [magnification] = magnification
+        [enableScrollZoom] = enableScrollZoom
+        [scrollStepSize] = scrollStepSize
+        [enableLens] = enableLens
+        [lensWidth] = lensWidth
+        [lensHeight] = lensHeight
+        [circularLens] = circularLens
+        >
+    </lib-ngx-image-zoom>
+
+    <lib-ngx-image-zoom 
+        [zoomMode] = zoomModeToggle
+        [magnification]= magnification
+        [enableScrollZoom] = enableScrollZoom
+        [scrollStepSize] = scrollStepSize
+        [enableLens] = enableLens
+        [lensWidth] = lensWidth
+        [lensHeight] = lensHeight
+        [circularLens] = circularLens
+        [thumbImage]=myThumbnail2
+        [fullImage]=myFullresImage2
+        >
+    </lib-ngx-image-zoom>
+</div>
+</div>
+
+<div class="container" id="last">
+<h1 class="title">Hover-Freeze</h1>
+<p class="text">Clique na imagem para dar zoom, clique novamente para pausar.</p>
+<div class="imgs-wrapper">
+    <lib-ngx-image-zoom 
+        [thumbImage]=myThumbnail
+        [fullImage]=myFullresImage
+        [zoomMode] = zoomModeHover_Freeze
+        [magnification] = magnification
+        [enableScrollZoom] = enableScrollZoom
+        [scrollStepSize] = scrollStepSize
+        [enableLens] = enableLens
+        [lensWidth] = lensWidth
+        [lensHeight] = lensHeight
+        [circularLens] = circularLens
+        >
+    </lib-ngx-image-zoom>
+
+    <lib-ngx-image-zoom 
+        [zoomMode] = zoomModeToggle
+        [magnification]= magnification
+        [enableScrollZoom] = enableScrollZoom
+        [scrollStepSize] = scrollStepSize
+        [enableLens] = enableLens
+        [lensWidth] = lensWidth
+        [lensHeight] = lensHeight
+        [circularLens] = circularLens
+        [thumbImage]=myThumbnail2
+        [fullImage]=myFullresImage2
+      
+        >
+    </lib-ngx-image-zoom>
+
+
+</div>
+</div>
+
+<div class="config-zoom">
+    <span>Nível de Zoom: <input type="number" name="" id="" max="1" min="0" step="0.1" [(ngModel)]="magnification"/></span>
+    <span>Níve de Zoom com Scroll: <input type="number" name="" id="" max="1" min="0" step="0.1" [(ngModel)]="scrollStepSize"/></span>
+     
+    <span>
+        Habilitar Lente: 
+        <select [(ngModel)]="enableLens">
+            <option [ngValue]=false (click)="changeLeans()">Desabilitado</option>
+            <option [ngValue]=true (click)="changeLeans()">Habilitado</option>
+        </select>
+    </span>
+
+    <span>Largura da lente: <input type="number" name="" id="" max="500" min="0" step="10" [(ngModel)]="lensWidth"/></span>
+    <span>Altura da lente: <input type="number" name="" id="" max="500" min="0" step="10" [(ngModel)]="lensHeight"/></span>
+
+        <span>       
+             Habilitar lente circular:
+            <select [(ngModel)]="circularLens">
+                <option [ngValue]=false (click)="changeCircularLeans()">Desabilitado</option>
+                <option [ngValue]=true (click)="changeCircularLeans()">Habilitado</option>
+            </select>
+        </span>
+        <span>       
+             Zoom Maximo com Scroll
+            <input type="number" name="" id="" max="2" min="0" step="0.1" [(ngModel)]=maxZoomRatio>
+        </span>
+        <span>       
+             Zoom Minimo com Scroll
+            <input type="number" name="" id="" max="2" min="-1" step="0.1" [(ngModel)]=minZoomRatio>
+        </span>
+
+</div>
+</main>
